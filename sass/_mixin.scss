@@ -1,0 +1,32 @@
+@mixin linkWithArrow() {
+  a {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    letter-spacing: .03em;
+    color: #111;
+    text-decoration: none;
+  }
+
+  &::before,
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 50%;
+  }
+
+  &::before {
+    width: 30px;
+    height: 1px;
+    background-color: #111;
+  }
+
+  &::after {
+    width: 5px;
+    height: 8px;
+    margin-top: -4px;
+    background-image: url(image/arrow.svg);
+    background-size: 5px 9px;
+  }
+}
