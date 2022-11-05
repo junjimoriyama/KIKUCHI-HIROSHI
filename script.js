@@ -7,8 +7,24 @@ setTimeout(loaded, 100);
 
 
 /* スライドショー */
-const imgScr = ['image/img7.jpeg','image/img11.jpeg','image/img12.jpeg'];
+const mainVisualImage = document.getElementById('js_main_visual_image');
+const slidImage = document.createElement('img');
+slidImage.setAttribute('class','slide_img');
+
+const imgScr = ['image/img13.jpeg','image/img11.jpeg','image/img12.jpeg'];
+const imgScrSp = ['image/img13_sp.jpeg','image/img11_sp.jpeg','image/img12_sp.jpeg'];
 let num = 0;
+
+
+mainVisualImage.appendChild(slidImage);
+
+if(window.innerWidth < 450) {
+  slidImage.src = 'image/img13_sp.jpeg';
+  setInterval(slideTimeSp, 20000);
+} else {
+  slidImage.src = 'image/img13.jpeg';
+  setInterval(slideTime, 20000);
+}
 
 function slideTime() {
   if(num === imgScr.length - 1) {
@@ -16,12 +32,19 @@ function slideTime() {
   }else{
     num++;
   }
-  document.getElementById('slide_img').src = imgScr[num];
+  document.querySelector('.slide_img').src = imgScr[num];
 }
 
-setInterval(slideTime, 20000);
-// ===============================================================================================
+function slideTimeSp() {
+  if(num === imgScrSp.length - 1) {
+    num = 0;
+  }else{
+    num++;
+  }
+  document.querySelector('.slide_img').src = imgScrSp[num];
+}
 
+// ===============================================================================================
 
 /* バンバーガーメニュー */
 document.getElementById('js_hamburger_menu').addEventListener('click', function(){
@@ -53,15 +76,23 @@ for (let j = 0; j < visualNameTextArray.length; j++) {
 // ===============================================================================================
 
 
+/* スクロールしたら表示 */
 
 
 
+// ===============================================================================================
 
+const scrollDisplay = document.querySelectorAll('.js_scroll_display');
 
-
-
-
-
+document.addEventListener('scroll', () => {
+  scrollDisplay.forEach((element,index) => {
+    const scrollDisplayDistance = scrollDisplay[index].getBoundingClientRect().top 
+    + scrollDisplay[index].clientHeight * .6;
+    if(window.innerHeight > scrollDisplayDistance) {
+      scrollDisplay[index].classList.add('fade_in');
+    }
+  });
+});
 
 
 

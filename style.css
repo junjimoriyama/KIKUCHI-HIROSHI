@@ -112,12 +112,12 @@ body {
   background-color: #fff;
 }
 body header {
+  width: 100%;
   padding: 0 50px;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 10;
-  width: 100%;
 }
 body header .inner {
   width: 90%;
@@ -174,19 +174,27 @@ body header .inner .nav_pc .sns_nav_pc li a i {
 body .menu_sp {
   display: none;
 }
-body .main_visual {
-  margin-bottom: 1000px;
+body .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-body .main_visual .inner {
+body .container .main_visual {
+  height: 100vh;
+  margin-bottom: 100px;
+}
+body .container .main_visual .inner {
   width: min(1680px, 100%);
+  height: 50%;
   display: flex;
   margin: 100px auto;
   padding: 0 50px;
 }
-body .main_visual .inner .main_visual_name {
+body .container .main_visual .inner .main_visual_name {
   width: 10%;
 }
-body .main_visual .inner .main_visual_name p {
+body .container .main_visual .inner .main_visual_name p {
   font-size: 3rem;
   font-family: "Lato", sans-serif;
   color: #333;
@@ -201,13 +209,13 @@ body .main_visual .inner .main_visual_name p {
     opacity: 1;
   }
 }
-body .main_visual .inner .main_visual_name span {
+body .container .main_visual .inner .main_visual_name span {
   animation: showVisualText 10s backwards;
 }
-body .main_visual .inner .main_visual_image {
+body .container .main_visual .inner .main_visual_image {
   width: 90%;
 }
-body .main_visual .inner .main_visual_image .slide_img {
+body .container .main_visual .inner .main_visual_image .slide_img {
   width: 100%;
   height: auto;
   animation: imgFade 20s infinite;
@@ -230,8 +238,59 @@ body .main_visual .inner .main_visual_image .slide_img {
     opacity: 0;
   }
 }
-body .main_visual .inner p {
-  font-size: 20px;
+body main .profile {
+  font-size: 30px;
+  font-family: "Lato", sans-serif;
+}
+body main .profile .inner {
+  width: min(1680px, 100%);
+  margin: 0 auto;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body main .profile .inner .profile_img {
+  width: 50%;
+}
+body main .profile .inner .profile_img img {
+  width: 100%;
+  height: auto;
+}
+body main .profile .inner .profile_contents {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+body main .profile .inner .profile_contents .profile_title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+body main .profile .inner .profile_contents .profile_name {
+  font-size: 3rem;
+  font-family: "Noto Serif JP", serif;
+}
+body main .profile .inner .profile_contents .profile_text {
+  padding: 50px 0 50px 50px;
+  font-size: 1.5rem;
+  font-family: "Noto Serif JP", serif;
+  line-height: 2;
+}
+body main .profile .inner .profile_contents .profile_text .bottom_space {
+  margin-bottom: 20px;
+}
+body main .profile .inner .js_scroll_display {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 1s;
+}
+body main .profile .inner .js_scroll_display.fade_in {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media screen and (max-width: 768px) {
@@ -247,7 +306,7 @@ body .main_visual .inner p {
     justify-content: space-between;
   }
   body header .inner .nav_sp .main_visual_name_sp {
-    font-size: 20px;
+    font-size: 2rem;
     font-family: "Lato", sans-serif;
     margin-right: 0 auto;
   }
@@ -332,7 +391,7 @@ body .main_visual .inner p {
     margin-top: 30px;
   }
   body .menu_sp.open .gloval_nav_sp li a {
-    font-size: 30px;
+    font-size: 3rem;
     font-family: "Lato", sans-serif;
     color: #fff;
   }
@@ -344,25 +403,83 @@ body .main_visual .inner p {
     gap: 20px;
   }
   body .menu_sp.open .sns_nav_sp li a {
-    font-size: 20px;
+    font-size: 2rem;
     color: #fff;
   }
-  body .main_visual {
-    margin-top: 100px;
+  body .container .main_visual {
+    margin-bottom: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  body .main_visual .inner {
+  body .container .main_visual .inner {
     margin: 0;
   }
-  body .main_visual .inner .main_visual_name {
+  body .container .main_visual .inner .main_visual_name {
     display: none;
   }
-  body .main_visual .inner .main_visual_name p {
-    font-size: 1.5rem;
+  body .container .main_visual .inner .main_visual_name p {
+    font-size: 1rem;
   }
-  body .main_visual .inner .main_visual_image {
+  body .container .main_visual .inner .main_visual_image {
     width: 100%;
   }
-  body .main_visual .inner p {
-    font-size: 20px;
+  body .container .main_visual .inner .scroll_line {
+    width: 1px;
+    height: 100px;
+    position: absolute;
+    top: 30%;
+    right: 50%;
+    background-color: #333;
+    transition: all 1.4s;
+  }
+  body .container .main_visual .inner .scroll_line::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 1px;
+    background-color: #fff;
+    animation: scroll_line 4s ease infinite;
+  }
+  @keyframes scroll_line {
+    0% {
+      bottom: 100%;
+      /* 一番上からスタート */
+      height: 0;
+    }
+    20% {
+      bottom: 0;
+      height: 100%;
+    }
+    80% {
+      bottom: 0;
+      height: 0;
+    }
+  }
+  body .container .profile .inner {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 0 50px;
+  }
+  body .container .profile .inner .profile_img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  body .container .profile .inner .profile_contents {
+    width: 80%;
+  }
+  body .container .profile .inner .profile_contents .profile_title {
+    margin-bottom: 20px;
+  }
+  body .container .profile .inner .profile_contents .profile_name {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  body .container .profile .inner .profile_contents .profile_text {
+    font-size: 1.3rem;
+    padding: 0;
+    margin-bottom: 20px;
   }
 }/*# sourceMappingURL=style.css.map */

@@ -5,10 +5,11 @@
   <meta charset='UTF-8'>
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <title>sample</title>
+  <title>KIKUCHI HIROSHI</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" />
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto:wght@100&display=swap"
     rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
   <link rel='stylesheet' href='https://unpkg.com/swiper@8/swiper-bundle.min.css' />
   <link rel='stylesheet' href='style.css'>
@@ -30,22 +31,22 @@
   <header>
     <div class="inner">
 
-    <!-- SP_ver -->
-    <nav id="js_nav_sp" class="nav_sp">
-      <p class="main_visual_name_sp">
-        HIROSHI KIKUCH
-      </p>
-      <div id="js_hamburger_menu" class="hamburger_menu">
-        <span class="hamburger_bar"></span>
-        <span class="hamburger_bar"></span>
-        <span class="hamburger_bar"></span>
-      </div>
-    </nav>
+      <!-- SP_ver -->
+      <nav id="js_nav_sp" class="nav_sp">
+        <p class="main_visual_name_sp">
+          HIROSHI KIKUCH
+        </p>
+        <div id="js_hamburger_menu" class="hamburger_menu">
+          <span class="hamburger_bar"></span>
+          <span class="hamburger_bar"></span>
+          <span class="hamburger_bar"></span>
+        </div>
+      </nav>
 
-    <!-- PC_ver -->
+      <!-- PC_ver -->
       <nav class="nav_pc">
         <ul class="gloval_nav_pc">
-          <li><a href=''>ABOUT</a></li>
+          <li><a href=''>PHOTOGRAPHER</a></li>
           <li><a href=''>GALLERY</a></li>
           <li><a href=''>BLOG</a></li>
           <li><a href=''>CONTACT</a></li>
@@ -56,8 +57,6 @@
           <li><a href=''><i class="fa-brands fa-facebook"></i></a></li>
         </ul>
       </nav>
-      
-      
     </div>
   </header>
 
@@ -76,22 +75,56 @@
     </ul>
   </div>
 
-  <section class="main_visual">
-    <div class="inner">
+  <div class="container">
 
-      <div class="main_visual_name js_main_visual_name">
-        <p>HIROSHI KIKUCHI</p>
+    <section class="main_visual">
+      <div class="inner">
+  
+        <div id="js_main_visual_name" class="main_visual_name js_main_visual_name">
+          <p>HIROSHI KIKUCHI</p>
+        </div>
+
+          <div id="js_main_visual_image" class="main_visual_image">
+
+          </div>
+
+          <!-- SP_ver -->
+          <div class="scroll_line"></div>
+  
       </div>
-      <div class="main_visual_image">
-        <img src="image/img7.jpeg" id="slide_img" class="slide_img" alt="メインの写真">
-      </div>
+    </section>
+  
+    <main>
+      <section class="profile">
+        <div class="inner">
 
-    </div>
-  </section>
-
-  <main>
-
-  </main>
+          <picture class="profile_img js_scroll_display">
+            <source srcset="image/profile_img_sp.jpeg" media="(max-width: 450x)">
+            <img src="image/profile_img.jpeg" alt="プロフィール写真">
+          </picture>
+  
+          <div class="profile_contents js_scroll_display">
+            <div class="profile_title">PHOTOGRAPHER</div>
+            <div class="profile_name">菊池　ひろし</div>
+            
+            <div class="profile_text">
+              1984年生まれ。千葉県在住。<br>
+              東京ビジュアルアーツ写真学科途中退学。<br>
+              <div class="bottom_space"></div>
+              その後、はじめて東南アジアを回り旅の魅力にハマる。<br>
+              旅を通して、そこに在る人々の生活を撮ってきた。東南アジアを中心に撮影をしてきたが、今は東京や半径自分メートルの日常の光を切り取る。<br>
+              <div class="bottom_space"></div>
+              また、自身が吃音の当事者であるため、同じように吃音の当事者を撮る【吃音ポートレート】プロジェクトにも取り組む。<br>
+              <div class="bottom_space"></div>
+              2022年9月より、日常の光を題材としたZINEを毎月発行。<br>
+              なんでもない、でも特別な瞬間をキャプチャーしている。
+            </div>
+          </div>
+        </div>
+      </section>
+  
+    </main>
+  </div>
 </body>
 
 </html>
