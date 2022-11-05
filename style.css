@@ -408,13 +408,14 @@ body main .profile .inner .js_scroll_display.fade_in {
   }
   body .container .main_visual {
     margin-bottom: 0;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   body .container .main_visual .inner {
     margin: 0;
+    position: relative;
+    height: auto;
   }
   body .container .main_visual .inner .main_visual_name {
     display: none;
@@ -423,6 +424,9 @@ body main .profile .inner .js_scroll_display.fade_in {
     font-size: 1rem;
   }
   body .container .main_visual .inner .main_visual_image {
+    width: 100%;
+  }
+  body .container .main_visual .inner .main_visual_image .slide_img {
     width: 100%;
   }
   body .container .main_visual .inner .scroll_line {

@@ -491,13 +491,14 @@ body {
     .container {
       .main_visual {
         margin-bottom: 0;
-        height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
-
+        
         .inner {
           margin: 0;
+          position: relative;
+          height: auto;
 
           .main_visual_name {
             display: none;
@@ -508,6 +509,10 @@ body {
           }
           .main_visual_image {
             width: 100%;
+            
+            .slide_img {
+              width: 100%;
+            }
           }
 
           .scroll_line {

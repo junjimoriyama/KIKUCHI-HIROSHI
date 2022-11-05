@@ -11,13 +11,14 @@ const mainVisualImage = document.getElementById('js_main_visual_image');
 const slidImage = document.createElement('img');
 slidImage.setAttribute('class','slide_img');
 
+// pc用、sp用で写真サイズ分ける
 const imgScr = ['image/img13.jpeg','image/img11.jpeg','image/img12.jpeg'];
 const imgScrSp = ['image/img13_sp.jpeg','image/img11_sp.jpeg','image/img12_sp.jpeg'];
 let num = 0;
 
 
 mainVisualImage.appendChild(slidImage);
-
+// window幅が450以下
 if(window.innerWidth < 450) {
   slidImage.src = 'image/img13_sp.jpeg';
   setInterval(slideTimeSp, 20000);
