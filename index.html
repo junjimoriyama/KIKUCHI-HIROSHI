@@ -20,20 +20,24 @@
 <body id='body'>
 
   <div id="loading" class="loading active">
-    <div class="loading_image"></div>
-    <div class="loading_name">KIKUCH HIROSHI
+      <picture class="loading_image">
+        <source srcset="image/img1_sp.jpg" media="(max-width: 450px)">
+        <img src="image/img1.jpg" alt="ローディング写真">
+      </picture>
+
+    <div class="loading_name">KIKUCH　HIROSHI
       <div class="loading_bar">
         <p class="bar"></p>
       </div>
     </div>
   </div>
 
-  <header>
+  <header id="header" class="header">
     <div class="inner">
 
       <!-- SP_ver -->
       <nav id="js_nav_sp" class="nav_sp">
-        <p class="main_visual_name_sp">
+        <p class="main_visual_name_sp js_main_visual_name_sp">
           KIKUCH HIROSHI
         </p>
         <div id="js_hamburger_menu" class="hamburger_menu">
@@ -58,22 +62,23 @@
         </ul>
       </nav>
     </div>
+    
+    <!-- SP_ver -->
+    <div class="menu_sp">
+      <ul class="gloval_nav_sp">
+        <li><a href=''>ABOUT</a></li>
+        <li><a href=''>GALLERY</a></li>
+        <li><a href=''>BLOG</a></li>
+        <li><a href=''>CONTACT</a></li>
+      </ul>
+      <ul class="sns_nav_sp">
+        <li><a href=''><i class="fa-brands fa-instagram"></i></a></li>
+        <li><a href=''><i class="fa-brands fa-twitter"></i></a></li>
+        <li><a href=''><i class="fa-brands fa-facebook"></i></a></li>
+      </ul>
+    </div>
   </header>
 
-  <!-- SP_ver -->
-  <div class="menu_sp">
-    <ul class="gloval_nav_sp">
-      <li><a href=''>ABOUT</a></li>
-      <li><a href=''>GALLERY</a></li>
-      <li><a href=''>BLOG</a></li>
-      <li><a href=''>CONTACT</a></li>
-    </ul>
-    <ul class="sns_nav_sp">
-      <li><a href=''><i class="fa-brands fa-instagram"></i></a></li>
-      <li><a href=''><i class="fa-brands fa-twitter"></i></a></li>
-      <li><a href=''><i class="fa-brands fa-facebook"></i></a></li>
-    </ul>
-  </div>
 
   <div class="container">
 
@@ -95,17 +100,18 @@
     </section>
   
     <main>
-      <section class="profile">
+      <section id="profile" class="profile">
         <div class="inner">
 
           <picture class="profile_img js_scroll_display">
-            <source srcset="image/profile_img_sp.jpeg" media="(max-width: 450x)">
-            <img src="image/profile_img.jpeg" alt="プロフィール写真">
+            <source srcset="image/profile_img_sp.jpg" media="(max-width: 450px)" />
+            <img src="image/profile_img.jpg" alt="プロフィール写真">
           </picture>
   
-          <div class="profile_contents js_scroll_display">
+          <div class="profile_contents js_scroll_display js_change_position">
             <div class="profile_title">PHOTOGRAPHER</div>
-            <div class="profile_name">菊池　ひろし</div>
+            <div class="profile_name_en">KIKUCH　HIROSHI</div>
+            <div class="profile_name_ja">きくち　ひろし</div>
             
             <div class="profile_text">
               1984年生まれ。千葉県在住。<br>
