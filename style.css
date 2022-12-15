@@ -1,42 +1,7 @@
 @charset "UTF-8";
-/* 基本設定 
---------------------------------------- */
-html {
-  font-size: 62.5%;
-}
-
-html,
-body {
-  overflow-x: hedden;
-}
-
-body {
-  /* font-family: YakuHanJP_Noto, 'Noto Sans JP', sans-serif; */
-  color: #333;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-a {
-  color: #333;
-  text-decoration: none;
-}
-
-li {
-  list-style: none;
-}
-
 /* loading 
 --------------------------------------- */
-body {
-  position: relative;
-  background-color: #fff;
-}
-body .loading {
+.loading {
   position: fixed;
   top: 0;
   right: 0;
@@ -52,15 +17,15 @@ body .loading {
   overflow: hidden;
   z-index: 100;
 }
-body .loading.active {
+.loading.active {
   visibility: visible;
   opacity: 1;
 }
-body .loading .loading_image {
+.loading .loading_image {
   width: 100%;
   text-align: center;
 }
-body .loading .loading_image img {
+.loading .loading_image img {
   width: 25%;
   height: 25%;
   -o-object-fit: contain;
@@ -75,7 +40,7 @@ body .loading .loading_image img {
     opacity: 1;
   }
 }
-body .loading .loading_name {
+.loading .loading_name {
   font-size: 3rem;
   font-family: "Lato", sans-serif;
   position: absolute;
@@ -86,7 +51,7 @@ body .loading .loading_name {
   margin-bottom: 50px;
   color: #333;
 }
-body .loading .loading_bar {
+.loading .loading_bar {
   width: 100%;
   height: 1px;
   background-color: #eee; /*バーの背景色*/
@@ -95,7 +60,7 @@ body .loading .loading_bar {
   overflow: hidden;
   margin-top: 10px;
 }
-body .loading .loading_bar .bar {
+.loading .loading_bar .bar {
   height: 100%;
   background-color: #333; /*バーカラー*/
   position: absolute;
@@ -110,7 +75,8 @@ body .loading .loading_bar .bar {
     width: 100%;
   }
 }
-body header {
+
+header {
   width: 100%;
   padding: 0 50px 10px;
   position: fixed;
@@ -118,58 +84,137 @@ body header {
   left: 0;
   z-index: 2;
   background-color: rgba(255, 255, 255, 0.9);
+  transition: 1s;
 }
-body header .inner {
+header .inner {
   width: 90%;
   margin-left: auto;
 }
-body header .inner .nav_sp {
+header .inner .nav_sp {
   display: none;
 }
-body header .inner .nav_pc {
+header .inner .nav_pc {
   display: flex;
   justify-content: center;
   margin-top: 50px;
 }
-body header .inner .nav_pc .gloval_nav_pc {
+header .inner .nav_pc .gloval_nav_pc {
   display: flex;
   justify-content: center;
 }
-body header .inner .nav_pc .gloval_nav_pc li:hover {
+header .inner .nav_pc .gloval_nav_pc li:hover {
   opacity: 0.5;
 }
-body header .inner .nav_pc .gloval_nav_pc li:hover::after {
+header .inner .nav_pc .gloval_nav_pc li:hover::after {
   content: "";
   border-bottom: 1px solid #000;
 }
-body header .inner .nav_pc .gloval_nav_pc li a {
+header .inner .nav_pc .gloval_nav_pc li a {
   font-size: 1.5rem;
   font-family: "Lato", sans-serif;
   text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, -1px 1px 0 #fff, 1px -1px 0 #fff, 0px 1px 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff, 1px 0 0 #fff;
 }
-body header .inner .nav_pc .gloval_nav_pc li:not(:first-of-type) {
+header .inner .nav_pc .gloval_nav_pc li:not(:first-of-type) {
   margin-left: 20px;
 }
-body header .inner .nav_pc .sns_nav_pc {
+header .inner .nav_pc .sns_nav_pc {
   display: flex;
 }
-body header .inner .nav_pc .sns_nav_pc li {
+header .inner .nav_pc .sns_nav_pc li {
   margin-left: 30px;
 }
-body header .inner .nav_pc .sns_nav_pc li:hover {
+header .inner .nav_pc .sns_nav_pc li:hover {
   opacity: 0.5;
 }
-body header .inner .nav_pc .sns_nav_pc li:hover::after {
+header .inner .nav_pc .sns_nav_pc li:hover::after {
   content: "";
   border-bottom: 1px solid #000;
 }
-body header .inner .nav_pc .sns_nav_pc li:first-of-type {
+header .inner .nav_pc .sns_nav_pc li:first-of-type {
   margin-left: 50px;
 }
-body header .inner .nav_pc .sns_nav_pc li a i {
+header .inner .nav_pc .sns_nav_pc li a {
   font-size: 2rem;
   color: #333;
   text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, -1px 1px 0 #fff, 1px -1px 0 #fff, 0px 1px 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff, 1px 0 0 #fff;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    transition: 1s;
+  }
+  body header {
+    transition: 1s;
+  }
+  body header .inner {
+    width: 100%;
+    margin-top: 50px;
+  }
+  body header .inner .nav_pc {
+    display: none;
+  }
+  body header .inner .nav_sp {
+    display: flex;
+    justify-content: space-between;
+  }
+  body header .inner .nav_sp .main_visual_name_sp {
+    font-size: 2rem;
+    font-family: "Lato", sans-serif;
+    margin-right: 0 auto;
+  }
+  body header .inner .nav_sp .hamburger_menu {
+    display: block;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    position: relative;
+    z-index: 4;
+  }
+  body header .inner .nav_sp .hamburger_menu .hamburger_bar {
+    display: block;
+    width: 40px;
+    height: 1px;
+    background-color: #333;
+    position: absolute;
+    transition: 1s;
+  }
+  body header .inner .nav_sp .hamburger_menu .hamburger_bar:nth-of-type(1) {
+    top: 0;
+    left: 0;
+  }
+  body header .inner .nav_sp .hamburger_menu .hamburger_bar:nth-of-type(2) {
+    top: 12px;
+    left: 0;
+    visibility: visible;
+    opacity: 1;
+  }
+  body header .inner .nav_sp .hamburger_menu .hamburger_bar:nth-of-type(3) {
+    top: 24px;
+    left: 0;
+  }
+  body header .inner .nav_sp.open .hamburger_bar {
+    transition: 1s;
+  }
+  body header .inner .nav_sp.open .hamburger_bar:nth-of-type(1) {
+    transform: rotate(-135deg);
+    top: 15px;
+    border: 1px solid #fff;
+  }
+  body header .inner .nav_sp.open .hamburger_bar:nth-of-type(2) {
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.1s;
+  }
+  body header .inner .nav_sp.open .hamburger_bar:nth-of-type(3) {
+    transform: rotate(135deg);
+    top: 15px;
+    border: 1px solid #fff;
+  }
+}
+body {
+  position: relative;
+  background-color: #fff;
+  transition: 1s;
 }
 body .menu_sp {
   display: none;
@@ -301,6 +346,9 @@ body main .profile .inner .js_scroll_display.fade_in {
     display: flex;
     flex-direction: column-reverse;
     padding: 0 50px;
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 0 50px;
   }
   body main .profile .inner .profile_img {
     width: 75%;
@@ -331,83 +379,12 @@ body main .profile .inner .js_scroll_display.fade_in {
   body {
     transition: 1s;
   }
-  body .loading .loading_image img {
-    width: 50%;
-    height: 50%;
-  }
-  body header {
-    transition: 1s;
-  }
-  body header .inner {
-    width: 100%;
-    margin-top: 50px;
-  }
-  body header .inner .nav_pc {
-    display: none;
-  }
-  body header .inner .nav_sp {
-    display: flex;
-    justify-content: space-between;
-  }
-  body header .inner .nav_sp .main_visual_name_sp {
-    font-size: 2rem;
-    font-family: "Lato", sans-serif;
-    margin-right: 0 auto;
-  }
-  body header .inner .nav_sp .hamburger_menu {
-    display: block;
-    width: 40px;
-    height: 40px;
-    padding: 10px;
-    position: relative;
-    z-index: 4;
-  }
-  body header .inner .nav_sp .hamburger_menu .hamburger_bar {
-    display: block;
-    width: 40px;
-    height: 1px;
-    background-color: #333;
-    position: absolute;
-    transition: 1s;
-  }
-  body header .inner .nav_sp .hamburger_menu .hamburger_bar:nth-of-type(1) {
-    top: 0;
-    left: 0;
-  }
-  body header .inner .nav_sp .hamburger_menu .hamburger_bar:nth-of-type(2) {
-    top: 12px;
-    left: 0;
-    visibility: visible;
-    opacity: 1;
-  }
-  body header .inner .nav_sp .hamburger_menu .hamburger_bar:nth-of-type(3) {
-    top: 24px;
-    left: 0;
-  }
-  body header .inner .nav_sp.open .hamburger_bar {
-    transition: 1s;
-  }
-  body header .inner .nav_sp.open .hamburger_bar:nth-of-type(1) {
-    transform: rotate(-135deg);
-    top: 15px;
-    border: 1px solid #fff;
-  }
-  body header .inner .nav_sp.open .hamburger_bar:nth-of-type(2) {
-    visibility: hidden;
-    opacity: 0;
-    transition: 0.1s;
-  }
-  body header .inner .nav_sp.open .hamburger_bar:nth-of-type(3) {
-    transform: rotate(135deg);
-    top: 15px;
-    border: 1px solid #fff;
-  }
-  body header .menu_sp {
+  body .menu_sp {
     display: none;
     visibility: hidden;
     opacity: 0;
   }
-  body header .menu_sp.open {
+  body .menu_sp.open {
     position: fixed;
     top: 0;
     right: 0;
@@ -427,28 +404,28 @@ body main .profile .inner .js_scroll_display.fade_in {
     align-items: center;
     z-index: 3;
   }
-  body header .menu_sp.open .gloval_nav_sp {
+  body .menu_sp.open .gloval_nav_sp {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  body header .menu_sp.open .gloval_nav_sp li:not(:first-of-type) {
+  body .menu_sp.open .gloval_nav_sp li:not(:first-of-type) {
     margin-top: 30px;
   }
-  body header .menu_sp.open .gloval_nav_sp li a {
+  body .menu_sp.open .gloval_nav_sp li a {
     font-size: 3rem;
     font-family: "Lato", sans-serif;
     color: #fff;
   }
-  body header .menu_sp.open .sns_nav_sp {
+  body .menu_sp.open .sns_nav_sp {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 50px;
     gap: 20px;
   }
-  body header .menu_sp.open .sns_nav_sp li a {
+  body .menu_sp.open .sns_nav_sp li a {
     font-size: 2rem;
     color: #fff;
   }
@@ -493,14 +470,251 @@ body main .profile .inner .js_scroll_display.fade_in {
     }
   }
 }
-@media screen and (max-width: 414px) {
-  body main .profile .inner .profile_img {
+@media screen and (max-width: 768px) and (max-width: 414px) {
+  body .container .top main .profile .inner .profile_img {
     width: 100%;
     height: auto;
     margin-bottom: 20px;
   }
-  body main .profile .inner .profile_contents .profile_text {
+  body .container .top main .profile .inner .profile_contents .profile_text {
     padding: 0;
     margin-bottom: 20px;
   }
+}
+.gallary {
+  /* gallary_container ---------------------------------------------------------------*/
+  /* モーダルの指定 */
+  /* モーダルを消すボタン */
+}
+.gallary header .inner {
+  width: 100%;
+  margin-left: auto;
+}
+.gallary .gallary_container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 200px 150px;
+  /* li ---------------------------------------------------------------*/
+}
+.gallary .gallary_container.active {
+  /* カーソル乗ってないli */
+}
+.gallary .gallary_container.active li {
+  /* 選択されていない画像 */
+}
+.gallary .gallary_container.active li:not(.active) {
+  filter: brightness(0.2);
+}
+.gallary .gallary_container li {
+  width: 20%;
+  position: relative;
+  transition: 0.3s;
+  cursor: pointer;
+  /* imgへの指定 */
+}
+.gallary .gallary_container li.active {
+  /* カーソル乗るli */
+  z-index: 1;
+  /* カーソル乗るliのimg(拡大用の写真)*/
+}
+.gallary .gallary_container li.active img.popUp {
+  transform: translate(-50%, -50%) scale(1.2);
+  opacity: 1;
+  visibility: visible;
+  box-shadow: 0 0 12px 2px rgba(0, 0, 0, 0.5);
+}
+.gallary .gallary_container li img {
+  display: block;
+  transition: 0.1s;
+  /* 表示用の写真、普段は見える */
+  /* 拡大用の写真、普段は見えない */
+}
+.gallary .gallary_container li img.thumbnail {
+  width: 100%;
+  aspect-ratio: 1/1;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.gallary .gallary_container li img.popUp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.1);
+  opacity: 0;
+  visibility: hidden;
+  height: 100%;
+}
+.gallary .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  visibility: hidden;
+  z-index: 1;
+  transition: 0.5s;
+  opacity: 0;
+  display: grid;
+  place-items: center;
+  /* モーダルの表示 */
+}
+.gallary .modal.show {
+  opacity: 1;
+  visibility: visible;
+  transition: 0.5s;
+}
+.gallary .modal .slide_wrapper {
+  width: 90vw;
+  height: 80vh;
+  position: relative;
+  /* モーダルに表示される写真 */
+}
+.gallary .modal .slide_wrapper .swiper {
+  width: calc(100% - 100px);
+}
+.gallary .modal .slide_wrapper .swiper-slide img {
+  width: 100%;
+  height: 80vh;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.gallary .modal .swiper-button-prev {
+  left: 10px;
+  width: 10px;
+  height: 10px;
+  border: 10px solid transparent;
+  border-right: 10px solid #333;
+}
+.gallary .modal .swiper-button-prev::after {
+  display: none;
+}
+.gallary .modal .swiper-button-next {
+  right: 10px;
+  width: 10px;
+  height: 10px;
+  border: 10px solid transparent;
+  border-left: 10px solid #333;
+  color: #333;
+}
+.gallary .modal .swiper-button-next::after {
+  display: none;
+}
+.gallary .close {
+  display: none;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 30px;
+  height: 30px;
+  background: #333;
+  cursor: pointer;
+  z-index: 1;
+  /* ------------クラス名を付与する場合------------- */
+  visibility: hidden;
+  opacity: 0;
+  /* ------------------------------------------------ */
+}
+.gallary .close.show {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transition: 0.5s;
+}
+@media (hover: hover) {
+  .gallary .close:hover {
+    opacity: 0.5;
+    transition: 0.5s;
+  }
+}
+@media (hover: none) {
+  .gallary .close:active {
+    opacity: 0.5;
+  }
+}
+.gallary .close::before, .gallary .close::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px;
+  height: 25px;
+  background: #fff;
+}
+.gallary .close::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.gallary .close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+@media (max-width: 768px) {
+  .gallary .gallary_container {
+    margin: 200px 20px;
+  }
+  .gallary .gallary_container li {
+    width: 33.3%;
+  }
+}
+@media (max-width: 414px) {
+  .gallary .gallary_container {
+    margin: 200px 10px;
+    /* li ---------------------------------------------------------------*/
+  }
+  .gallary .gallary_container li {
+    width: 50%;
+  }
+  .gallary .gallary_container li.active img.popUp {
+    transform: none;
+  }
+  .gallary .gallary_container li img {
+    /* 拡大用の写真、普段は見えない */
+  }
+  .gallary .gallary_container li img.popUp {
+    top: 0;
+    left: 0;
+    transform: none;
+    aspect-ratio: 1/1;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .gallary .modal .slide_wrapper .swiper {
+    width: 100%;
+  }
+  .gallary .modal .swiper-button-prev {
+    top: 75%;
+  }
+  .gallary .modal .swiper-button-next {
+    top: 75%;
+  }
+}
+
+/* 基本設定 
+--------------------------------------- */
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
+  overflow-x: hedden;
+}
+
+body {
+  /* font-family: YakuHanJP_Noto, 'Noto Sans JP', sans-serif; */
+  color: #333;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
 }/*# sourceMappingURL=style.css.map */

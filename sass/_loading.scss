@@ -1,0 +1,86 @@
+@use "var" as var;
+@use "mixin" as mixin;
+
+
+/* loading 
+--------------------------------------- */
+.loading {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var.$backGroundColor;
+	transition: 1s;
+	visibility: hidden;
+	opacity: 0;
+	overflow: hidden;
+	z-index: 100;
+
+	&.active {
+		visibility: visible;
+		opacity: 1;
+	}
+	.loading_image {
+		width: 100%;
+		text-align: center;
+
+		img {
+			width: 25%;
+			height: 25%;
+			object-fit: contain;
+			animation: delayStart 1s;
+		}
+
+		@keyframes delayStart {
+			0% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+	}
+
+	.loading_name {
+		font-size: 3rem;
+		font-family: var.$fontFamilyEn;
+		position: absolute;
+		left: 50%;
+		bottom: 10%;
+		transform: translateX(-50%);
+		text-align: center;
+		margin-bottom: 50px;
+		color: var.$textColor;
+	}
+
+	.loading_bar {
+		width: 100%;
+		height: 1px;
+		background-color: #eee; /*バーの背景色*/
+		border-radius: 5px;
+		position: relative;
+		overflow: hidden;
+		margin-top: 10px;
+	}
+
+	.loading_bar .bar {
+		height: 100%;
+		background-color: #333; /*バーカラー*/
+		position: absolute;
+		animation: progress 2s infinite normal; /*アニメーションスピード*/
+		animation-fill-mode: forwards;
+	}
+
+	@keyframes progress {
+		0% {
+			width: 0;
+		}
+		100% {
+			width: 100%;
+		}
+	}
+}

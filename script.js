@@ -1,65 +1,70 @@
-/* loading画面 */
+// loading ------------------------------------------------------------
 
-function loaded() {
-  document.querySelector('.loading').classList.remove('active');
-  // (x軸、Y軸)
-  // scrollTo(0, 0)
-}
-setTimeout(loaded, 1000);
-
-// ===============================================================================================
-
-/* スライドショー */
-
-const mainVisualImage = document.getElementById('js_main_visual_image');
-const slidImage = document.createElement('img');
-
-mainVisualImage.appendChild(slidImage);
-
-// pc用、sp用で写真サイズ分ける
-const imgScr = ['image/img13.jpg', 'image/img11.jpg', 'image/img12.jpg'];
-const imgScrSp = ['image/img13_sp.jpg', 'image/img11_sp.jpg', 'image/img12_sp.jpg'];
-let num = 0;
-
-// window幅が450以下
-if (window.innerWidth < 450) {
-  slidImage.setAttribute('class', 'slide_img_sp');
-  slidImage.src = 'image/img13_sp.jpg';
-  setInterval(slideTimeSp, 10000);
-} else {
-  slidImage.setAttribute('class', 'slide_img');
-  slidImage.src = 'image/img13.jpg';
-  setInterval(slideTime, 20000);
-}
-
-// PC用写真
-function slideTime() {
-  if (num === imgScr.length - 1) {
-    num = 0;
-  } else {
-    num++;
+if(document.querySelector('.loading')) {
+  function loaded() {
+    document.querySelector('.loading').classList.remove('active');
+    // (x軸、Y軸)
+    // scrollTo(0, 0)
   }
-  document.querySelector('.slide_img').src = imgScr[num];
+  setTimeout(loaded, 200);
 }
 
-// SP用写真
-function slideTimeSp() {
-  if (num === imgScrSp.length - 1) {
-    num = 0;
+// --------------------------------------------------------------------------
+
+// slideShow ----------------------------------------------------------------
+if(document.getElementById('js_main_visual_image')) {
+  const mainVisualImage = document.getElementById('js_main_visual_image');
+  const slidImage = document.createElement('img');
+  
+  mainVisualImage.appendChild(slidImage);
+  
+  // pc用、sp用で写真サイズ分ける
+  const imgScr = ['image/img13.jpg', 'image/img11.jpg', 'image/img12.jpg'];
+  const imgScrSp = ['image/img13_sp.jpg', 'image/img11_sp.jpg', 'image/img12_sp.jpg'];
+  let num = 0;
+  
+  // window幅が450以下
+  if (window.innerWidth < 450) {
+    slidImage.setAttribute('class', 'slide_img_sp');
+    slidImage.src = 'image/img13_sp.jpg';
+    setInterval(slideTimeSp, 10000);
   } else {
-    num++;
+    slidImage.setAttribute('class', 'slide_img');
+    slidImage.src = 'image/img13.jpg';
+    setInterval(slideTime, 20000);
   }
-  document.querySelector('.slide_img_sp').src = imgScrSp[num];
+  
+  // PC用写真
+  function slideTime() {
+    if (num === imgScr.length - 1) {
+      num = 0;
+    } else {
+      num++;
+    }
+    document.querySelector('.slide_img').src = imgScr[num];
+  }
+  
+  // SP用写真
+  function slideTimeSp() {
+    if (num === imgScrSp.length - 1) {
+      num = 0;
+    } else {
+      num++;
+    }
+    document.querySelector('.slide_img_sp').src = imgScrSp[num];
+  }
 }
 
-// ===============================================================================================
+// --------------------------------------------------------------------------
 
-/* バンバーガーメニュー */
+// hamburger 🍔 ----------------------------------------------------------------
+
 
 document.getElementById('js_hamburger_menu').addEventListener('click', function () {
   document.querySelector('.nav_sp').classList.toggle('open');
   document.querySelector('.menu_sp').classList.toggle('open');
 });
+
 
 // const jsNavSp = document.getElementById('js_nav_sp')
 // console.log(jsNavSp)
@@ -110,31 +115,39 @@ document.getElementById('js_hamburger_menu').addEventListener('click', function 
 //     }
 //   }
 // });
-// ===============================================================================================
+
+// --------------------------------------------------------------------------
 
 
 /* 一文字ずつ表示 */
-const animationVisualName = document.querySelector('.js_main_visual_name > p');
-const visualNameText = animationVisualName.textContent,
-  visualNameTextArray = [];
 
-animationVisualName.textContent = '';
+if(document.querySelector('.js_main_visual_name')) {
 
-for (let i = 0; i < visualNameText.split('').length; i++) {
-  const oneText = visualNameText.split('')[i];
-  if (oneText === ' ') {
-    visualNameTextArray.push(' ');
-  } else {
-    visualNameTextArray.push('<span style="animation-delay: ' + (i * .2) + 'S;">' + oneText + '</span>')
+  const animationVisualName = document.querySelector('.js_main_visual_name > p');
+  const visualNameText = animationVisualName.textContent,
+    visualNameTextArray = [];
+  
+  animationVisualName.textContent = '';
+  
+  for (let i = 0; i < visualNameText.split('').length; i++) {
+    const oneText = visualNameText.split('')[i];
+    if (oneText === ' ') {
+      visualNameTextArray.push(' ');
+    } else {
+      visualNameTextArray.push('<span style="animation-delay: ' + (i * .2) + 'S;">' + oneText + '</span>')
+    }
+  }
+
+  for (let j = 0; j < visualNameTextArray.length; j++) {
+    animationVisualName.innerHTML += visualNameTextArray[j]
   }
 }
 
-for (let j = 0; j < visualNameTextArray.length; j++) {
-  animationVisualName.innerHTML += visualNameTextArray[j]
-}
-// ===============================================================================================
 
-/* スクロールしたら表示 */
+// --------------------------------------------------------------------------
+
+// scrollDisplay ----------------------------------------------------------------
+
 const scrollDisplay = document.querySelectorAll('.js_scroll_display');
 
 document.addEventListener('scroll', () => {
@@ -147,54 +160,63 @@ document.addEventListener('scroll', () => {
   });
 });
 
-// ===============================================================================================
+// --------------------------------------------------------------------------
+
+// scrollBackgroundChange ----------------------------------------------------
+
 const body = document.getElementById('body');
-const header = document.getElementById('header');
+const header = document.querySelector('.header')
 const profile = document.getElementById('profile');
 
 const mainVisualNameSp = document.querySelector('.js_main_visual_name_sp');
 const hamburgerBar = document.querySelectorAll('.hamburger_bar');
-
 const navSP = document.querySelector('.nav_sp')
 
 
-if (window.innerWidth < 768) {
+// if (window.innerWidth < 768) {
 
-  window.addEventListener('scroll', function() {
-  
-    let scroll = window.pageYOffset;
+window.addEventListener('scroll', function () {
 
-    if (scroll > 500) {
-      document.body.style.backgroundColor = "#000";
-      header.style.backgroundColor = "#000";
-      profile.style.color = '#fff';
-      mainVisualNameSp.style.color = '#fff';
-      for (let i = 0; i < hamburgerBar.length; i++){
-        hamburgerBarLine = hamburgerBar[i]
-        hamburgerBarLine.style.backgroundColor = '#fff';
+  let scroll = window.pageYOffset;
 
-      }
-    } else if (scroll > 300){
-      document.body.style.backgroundColor = "#fff"
-      header.style.backgroundColor = "#fff";
-      profile.style.color = '#000';
-      mainVisualNameSp.style.color = '#000';
-      for (let i = 0; i < hamburgerBar.length; i++){
-        hamburgerBarLine = hamburgerBar[i]
-        hamburgerBarLine.style.backgroundColor = '#000';
-      }
+  if (scroll > 500) {
+    document.body.style.backgroundColor = "#000";
+    header.style.backgroundColor = "#000";
+    profile.style.color = '#fff';
+    mainVisualNameSp.style.color = '#fff';
+    for (let i = 0; i < hamburgerBar.length; i++) {
+      hamburgerBarLine = hamburgerBar[i]
+      hamburgerBarLine.style.backgroundColor = '#fff';
+
     }
-  });
+  } else if (scroll > 300) {
+    document.body.style.backgroundColor = "#fff"
+    header.style.backgroundColor = "#fff";
+    profile.style.color = '#000';
+    mainVisualNameSp.style.color = '#000';
+    for (let i = 0; i < hamburgerBar.length; i++) {
+      hamburgerBarLine = hamburgerBar[i]
+      hamburgerBarLine.style.backgroundColor = '#000';
+    }
+  }
+});
+// }
+
+// --------------------------------------------------------------------------
+
+
+// innerWidthChangeNamePlace ----------------------------------------------------
+
+if(document.querySelector('.js_change_position')) {
+  const jsChangePosition = document.querySelector('.js_change_position');
+  const profileNameEn = document.querySelector('.profile_name_en')
+  const profileNameJa = document.querySelector('.profile_name_ja')
+  
+  if (window.innerWidth <= 1280) {
+    jsChangePosition.insertBefore(profileNameJa, profileNameEn)
+  }
 }
-// ===============================================================================================
 
-/* プロフィール要素位置の変更(bp:1280px) */
-const jsChangePosition = document.querySelector('.js_change_position');
-const profileNameEn = document.querySelector('.profile_name_en')
-const profileNameJa = document.querySelector('.profile_name_ja')
+// --------------------------------------------------------------------------
 
-if (window.innerWidth <= 1280) {
-  jsChangePosition.insertBefore(profileNameJa, profileNameEn)
-}
 
-// ===============================================================================================

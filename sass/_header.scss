@@ -1,0 +1,168 @@
+@use "var" as var;
+@use "mixin" as mixin;
+
+// header =============================================================
+header {
+	width: 100%;
+	padding: 0 var.$mainImageSidePadding 10px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	background-color: rgba(255, 255, 255, 0.9);
+	transition: 1s;
+
+	.inner {
+		width: var.$mainImageWidth;
+		margin-left: auto;
+
+		.nav_sp {
+			// visibility: hidden;
+			display: none;
+		}
+
+		.nav_pc {
+			display: flex;
+			justify-content: center;
+			margin-top: 50px;
+
+			.gloval_nav_pc {
+				display: flex;
+				justify-content: center;
+
+				li {
+					&:hover {
+						opacity: 0.5;
+
+						&::after {
+							content: "";
+							border-bottom: 1px solid #000;
+						}
+					}
+					a {
+						font-size: 1.5rem;
+						font-family: var.$fontFamilyEn;
+						text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, -1px 1px 0 #fff, 1px -1px 0 #fff, 0px 1px 0 #fff,
+							0 -1px 0 #fff, -1px 0 0 #fff, 1px 0 0 #fff;
+					}
+
+					&:not(:first-of-type) {
+						margin-left: 20px;
+					}
+				}
+			}
+
+			.sns_nav_pc {
+				display: flex;
+				li {
+					&:hover {
+						opacity: 0.5;
+
+						&::after {
+							content: "";
+							border-bottom: 1px solid #000;
+						}
+					}
+					&:first-of-type {
+						margin-left: 50px;
+					}
+					margin-left: 30px;
+
+					a {
+							font-size: 2rem;
+							color: #333;
+							text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, -1px 1px 0 #fff, 1px -1px 0 #fff, 0px 1px 0 #fff,
+								0 -1px 0 #fff, -1px 0 0 #fff, 1px 0 0 #fff;
+					}
+				}
+			}
+		}
+	}
+}
+
+	@media screen and(max-width: 768px) {
+		body {
+			transition: 1s;
+			header {
+				transition: 1s;
+				.inner {
+					width: 100%;
+					margin-top: 50px;
+					.nav_pc {
+						display: none;
+					}
+					.nav_sp {
+						display: flex;
+						justify-content: space-between;
+	
+						.main_visual_name_sp {
+							font-size: 2rem;
+							font-family: var.$fontFamilyEn;
+							margin-right: 0 auto;
+						}
+	
+						.hamburger_menu {
+							display: block;
+							width: 40px;
+							height: 40px;
+							padding: 10px;
+							position: relative;
+							z-index: 4;
+	
+							.hamburger_bar {
+								display: block;
+								width: 40px;
+								height: 1px;
+								background-color: #333;
+								position: absolute;
+								transition: 1s;
+	
+								&:nth-of-type(1) {
+									top: 0;
+									left: 0;
+								}
+	
+								&:nth-of-type(2) {
+									top: 12px;
+									left: 0;
+									visibility: visible;
+									opacity: 1;
+									// transition: 1s;
+								}
+	
+								&:nth-of-type(3) {
+									top: 24px;
+									left: 0;
+								}
+							}
+						}
+	
+						&.open {
+							.hamburger_bar {
+								transition: 1s;
+								// background-color: #fff;
+	
+								&:nth-of-type(1) {
+									transform: rotate(-135deg);
+									top: 15px;
+									border: 1px solid #fff;
+								}
+	
+								&:nth-of-type(2) {
+									visibility: hidden;
+									opacity: 0;
+									transition: .1s;
+								}
+	
+								&:nth-of-type(3) {
+									transform: rotate(135deg);
+									top: 15px;
+									border: 1px solid #fff;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
