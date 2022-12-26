@@ -8,7 +8,6 @@ document.getElementById('js_hamburger_menu').addEventListener('click', function 
 // --------------------------------------------------------------------------
 
 
-
 // gallary -------------------------------------------------------------------
 const images = document.querySelectorAll('.gallary_container li');
 console.log(images)
@@ -81,7 +80,7 @@ images.forEach((el, index) => {
 		const swiperSlide =  document.createElement('div');
 		swiperSlide.classList.add('swiper-slide');
 		const swiperSlideImage = document.createElement('img');
-		swiperSlideImage.setAttribute('src', `image/img${index + 1}.jpg`);
+		swiperSlideImage.setAttribute('src', `image/gallary/img${index + 1}.jpg`);
 		swiperSlide.appendChild(swiperSlideImage);
 		swiperWrapper.appendChild(swiperSlide);
 

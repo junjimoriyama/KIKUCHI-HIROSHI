@@ -603,11 +603,12 @@ body main .profile .inner .js_scroll_display.fade_in {
 .gallary .close {
   display: none;
   position: absolute;
-  bottom: 30px;
-  right: 30px;
+  left: 50%;
+  bottom: 3%;
+  transform: translateX(-50%);
   width: 30px;
   height: 30px;
-  background: #333;
+  background-color: #fff;
   cursor: pointer;
   z-index: 1;
   /* ------------クラス名を付与する場合------------- */
@@ -639,7 +640,7 @@ body main .profile .inner .js_scroll_display.fade_in {
   left: 50%;
   width: 3px;
   height: 25px;
-  background: #fff;
+  background: #333;
 }
 .gallary .close::before {
   transform: translate(-50%, -50%) rotate(45deg);
@@ -681,10 +682,16 @@ body main .profile .inner .js_scroll_display.fade_in {
     width: 100%;
   }
   .gallary .modal .swiper-button-prev {
-    top: 75%;
+    top: 110%;
   }
   .gallary .modal .swiper-button-next {
-    top: 75%;
+    top: 110%;
+    left: 25%;
+  }
+  .gallary .modal .close {
+    left: 20%;
+    bottom: 16px;
+    transform: translateX(-50%);
   }
 }
 

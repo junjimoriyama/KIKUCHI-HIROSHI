@@ -1,13 +1,25 @@
 // loading ------------------------------------------------------------
 
-if(document.querySelector('.loading')) {
-  function loaded() {
-    document.querySelector('.loading').classList.remove('active');
-    // (x軸、Y軸)
-    // scrollTo(0, 0)
-  }
-  setTimeout(loaded, 200);
+const loading = document.querySelector('.loading');
+
+function loaded() {
+  loading.classList.remove('active');
 }
+
+if(document.querySelector('.loading')) {
+
+  if (!sessionStorage.getItem('visited')) {
+    sessionStorage.setItem('visited', 'first');
+    window.addEventListener('load', function () {
+      setTimeout(loaded, 2000);
+    });
+    setTimeout(loaded, 5000);
+  }else {
+    loaded();
+  }
+}
+
+
 
 // --------------------------------------------------------------------------
 

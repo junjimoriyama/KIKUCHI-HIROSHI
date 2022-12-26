@@ -137,11 +137,12 @@
   .close {
     display: none;
     position: absolute;
-    bottom: 30px;
-    right: 30px;
+    left: 50%;
+    bottom: 3%;
+    transform: translateX(-50%);
     width: 30px;
     height: 30px;
-    background: #333;
+    background-color: #fff;
     cursor: pointer;
     z-index: 1;
 
@@ -177,7 +178,7 @@
       left: 50%;
       width: 3px;
       height: 25px;
-      background: #fff;
+      background: #333;
     }
     &::before {
       transform: translate(-50%, -50%) rotate(45deg);
@@ -236,11 +237,18 @@
           }
         }
         .swiper-button-prev {
-          top: 75%;
+          top: 110%;
         }
 
         .swiper-button-next {
-          top: 75%;
+          top: 110%;
+          left: 25%;
+        }
+
+        .close {
+          left: 20%;
+          bottom: 16px;
+          transform: translateX(-50%);
         }
       }
     }
