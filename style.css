@@ -603,8 +603,7 @@ body main .profile .inner .js_scroll_display.fade_in {
 .gallary .close {
   display: none;
   position: absolute;
-  left: 50%;
-  bottom: 3%;
+  left: 0;
   transform: translateX(-50%);
   width: 30px;
   height: 30px;
@@ -638,7 +637,7 @@ body main .profile .inner .js_scroll_display.fade_in {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 3px;
+  width: 1px;
   height: 25px;
   background: #333;
 }
@@ -650,15 +649,36 @@ body main .profile .inner .js_scroll_display.fade_in {
 }
 @media (max-width: 768px) {
   .gallary .gallary_container {
-    margin: 200px 20px;
+    margin: 200px 0;
+    /* li ---------------------------------------------------------------*/
   }
   .gallary .gallary_container li {
     width: 33.3%;
   }
+  .gallary .gallary_container li.active img.popUp {
+    transform: none;
+  }
+  .gallary .gallary_container li img {
+    /* 拡大用の写真、普段は見えない */
+  }
+  .gallary .gallary_container li img.popUp {
+    top: 0;
+    left: 0;
+    transform: none;
+    aspect-ratio: 1/1;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .gallary .modal .close {
+    top: auto;
+    left: 50%;
+    bottom: 100px;
+    transform: translateX(-50%);
+  }
 }
-@media (max-width: 414px) {
+@media (max-width: 480px) {
   .gallary .gallary_container {
-    margin: 200px 10px;
+    margin: 200px 0px;
     /* li ---------------------------------------------------------------*/
   }
   .gallary .gallary_container li {
@@ -689,8 +709,9 @@ body main .profile .inner .js_scroll_display.fade_in {
     left: 25%;
   }
   .gallary .modal .close {
-    left: 20%;
-    bottom: 16px;
+    top: auto;
+    left: 50%;
+    bottom: 100px;
     transform: translateX(-50%);
   }
 }

@@ -26,9 +26,6 @@ images.forEach((el, index) => {
 	// カーソル当たればliにクラスactive付与
 	el.addEventListener('mouseleave', e => {
 		e.target.classList.remove('active');
-	// TODO--- 　上記との違いを知りたい
-	// el.addEventListener('mouseleave', () => {
-	// 	el.classList.remove('active');
 	})
 	// カーソル離れればliのクラスactive消える
 	el.addEventListener('mouseenter', e => {
@@ -80,6 +77,8 @@ images.forEach((el, index) => {
 		const swiperSlide =  document.createElement('div');
 		swiperSlide.classList.add('swiper-slide');
 		const swiperSlideImage = document.createElement('img');
+		// sp
+
 		swiperSlideImage.setAttribute('src', `image/gallary/img${index + 1}.jpg`);
 		swiperSlide.appendChild(swiperSlideImage);
 		swiperWrapper.appendChild(swiperSlide);
@@ -95,10 +94,6 @@ images.forEach((el, index) => {
 	});
 
 	swiper = new Swiper('.swiper', {
-		// // If we need pagination
-		// pagination: {
-		// 	el: '.swiper-pagination',
-		// },
 	
 		// Navigation arrows
 		navigation: {

@@ -137,8 +137,7 @@
   .close {
     display: none;
     position: absolute;
-    left: 50%;
-    bottom: 3%;
+    left: 0;
     transform: translateX(-50%);
     width: 30px;
     height: 30px;
@@ -176,7 +175,7 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 3px;
+      width: 1px;
       height: 25px;
       background: #333;
     }
@@ -190,23 +189,68 @@
 
   @media (max-width: 768px) {
     .gallary_container {
-      margin: 200px 20px;
-      li {
-        width: 33.3%;
-      }
-    }
-  }
-  @media (max-width: 414px) {
-    .gallary_container {
-      margin: 200px 10px;
-  
+      margin: 200px 0;
+
       &.active {
         li {
           &:not(.active) {
           }
         }
       }
-  
+
+      /* li ---------------------------------------------------------------*/
+      li {
+        width: 33.3%;
+        &.active {
+          img.popUp {
+            transform: none;
+          }
+        }
+        img {
+          &.thumbnail {
+          }
+          /* 拡大用の写真、普段は見えない */
+          &.popUp {
+            top: 0;
+            left: 0;
+            transform: none;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+
+        .modal {
+          .slide_wrapper {
+            .swiper {
+            }
+          }
+          .swiper-button-prev {
+          }
+          .swiper-button-next {
+          }
+    
+          .close {
+            top: auto;
+            left: 50%;
+            bottom: 100px;
+            transform: translateX(-50%);
+          }
+        }
+      }
+
+  @media (max-width: 480px) {
+    .gallary_container {
+      margin: 200px 0px;
+
+      &.active {
+        li {
+          &:not(.active) {
+          }
+        }
+      }
+
       /* li ---------------------------------------------------------------*/
       li {
         width: 50%;
@@ -229,28 +273,28 @@
         }
       }
     }
-    
+
     .modal {
-        .slide_wrapper {
-          .swiper {
-            width: 100%;
-          }
+      .slide_wrapper {
+        .swiper {
+          width: 100%;
         }
-        .swiper-button-prev {
-          top: 110%;
-        }
+      }
+      .swiper-button-prev {
+        top: 110%;
+      }
 
-        .swiper-button-next {
-          top: 110%;
-          left: 25%;
-        }
+      .swiper-button-next {
+        top: 110%;
+        left: 25%;
+      }
 
-        .close {
-          left: 20%;
-          bottom: 16px;
-          transform: translateX(-50%);
-        }
+      .close {
+        top: auto;
+        left: 50%;
+        bottom: 100px;
+        transform: translateX(-50%);
       }
     }
   }
-
+}
