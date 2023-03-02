@@ -1,0 +1,84 @@
+@use "var" as var;
+@use "mixin" as mixin;
+
+.contactform_container {
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	font-family: var.$fontFamilyEn;
+	font-family: var.$fontFamilyJa;
+	.inner {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		form {
+			font-size: 2rem;
+		}
+		.name_area {
+			.name_title {
+			}
+			.input_name {
+				margin-top: 10px;
+				border-bottom: 1px solid #000;
+			}
+		}
+		.mail_area {
+			margin-top: 30px;
+			.mail_title {
+			}
+			.input_mail {
+				margin-top: 10px;
+				border-bottom: 1px solid #000;
+			}
+		}
+		.select_content {
+			margin-top: 30px;
+			.select_wrap {
+				font-size: 1.75rem;
+				margin-top: 10px;
+				.select_1 {
+					
+				}
+				.select_2 {
+				}
+			}
+		}
+		.text_content {
+			margin-top: 10px;
+			border: 1px solid #333;
+		}
+	}
+}
+
+// table {
+// 	// border: 1px solid #000;
+// 	font-family: var.$fontFamilyEn;
+// 	font-family: var.$fontFamilyJa;
+
+// 	.name_area {
+// 		width: 300px;
+// 		// border: 1px solid #000;
+// 		.name_title {
+// 			width: 100px;
+// 		}
+// 		.name_item {
+// 			border: 1px solid #000;
+// 		}
+// 	}
+
+// 	.mail_area {
+// 		width: 300px;
+// 		.mail_title {
+// 			width: 100px;
+// 		}
+// 		.mail_item {
+// 			border: 1px solid #000;
+// 		}
+// 	}
+
+// 		.content_area {
+// 			.content_title {
+// 			}
+// 		}
+// }

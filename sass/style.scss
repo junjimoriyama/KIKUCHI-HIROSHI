@@ -5,6 +5,7 @@
 @use "header";
 @use "top";
 @use "gallary";
+@use "contact";
 
 @use "var" as var;
 @use "mixin" as mixin;
@@ -32,7 +33,6 @@ body {
 }
 
 a {
-  color: #333;
   text-decoration: none;
 }
 

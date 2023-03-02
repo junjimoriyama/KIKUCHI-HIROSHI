@@ -76,6 +76,15 @@
   }
 }
 
+@media screen and (max-width: 414px) {
+  .loading .loading_image img {
+    width: 50%;
+    height: 50%;
+    -o-object-fit: contain;
+       object-fit: contain;
+    animation: delayStart 1s;
+  }
+}
 header {
   width: 100%;
   padding: 0 50px 10px;
@@ -329,6 +338,41 @@ body main .profile .inner .profile_contents .profile_text {
 body main .profile .inner .profile_contents .profile_text .bottom_space {
   margin-bottom: 20px;
 }
+body main .profile .inner .profile_contents .profile_text .mail {
+  margin-top: 50px;
+  text-align: right;
+}
+@media (hover: hover) {
+  body main .profile .inner .profile_contents .profile_text .mail :hover {
+    opacity: 0.5;
+    transition: 0.5s;
+  }
+}
+body main .profile .inner .profile_contents .profile_text .mail a {
+  font-size: clamp(1.3rem, 1.254rem + 0.23vw, 1.5rem);
+  font-family: "Noto Serif JP", serif;
+}
+body main .profile .inner .profile_contents .profile_text .mail .fa-sharp {
+  cursor: pointer;
+}
+body main .profile .inner .profile_contents .profile_text .blog {
+  text-align: right;
+  cursor: pointer;
+}
+@media (hover: hover) {
+  body main .profile .inner .profile_contents .profile_text .blog :hover {
+    opacity: 0.5;
+    transition: 0.5s;
+  }
+}
+body main .profile .inner .profile_contents .profile_text .blog a {
+  font-size: clamp(1.3rem, 1.254rem + 0.23vw, 1.5rem);
+  font-family: "Noto Serif JP", serif;
+}
+body main .profile .inner .profile_contents .profile_text .blog a img {
+  width: 100px;
+  height: auto;
+}
 body main .profile .inner .js_scroll_display {
   visibility: hidden;
   opacity: 0;
@@ -470,15 +514,21 @@ body main .profile .inner .js_scroll_display.fade_in {
     }
   }
 }
-@media screen and (max-width: 768px) and (max-width: 414px) {
-  body .container .top main .profile .inner .profile_img {
+@media screen and (max-width: 414px) {
+  body main .profile .inner .profile_img {
     width: 100%;
     height: auto;
     margin-bottom: 20px;
   }
-  body .container .top main .profile .inner .profile_contents .profile_text {
+  body main .profile .inner .profile_contents .profile_text {
     padding: 0;
     margin-bottom: 20px;
+  }
+  body main .profile .inner .profile_contents .profile_text .mail {
+    text-align: center;
+  }
+  body main .profile .inner .profile_contents .profile_text .blog {
+    text-align: center;
   }
 }
 .gallary {
@@ -575,7 +625,8 @@ body main .profile .inner .js_scroll_display.fade_in {
 }
 .gallary .modal .slide_wrapper .swiper-slide img {
   width: 100%;
-  height: 80vh;
+  height: 65vh;
+  margin-top: 40px;
   -o-object-fit: contain;
      object-fit: contain;
 }
@@ -603,7 +654,8 @@ body main .profile .inner .js_scroll_display.fade_in {
 .gallary .close {
   display: none;
   position: absolute;
-  left: 0;
+  left: 50%;
+  bottom: 5%;
   transform: translateX(-50%);
   width: 30px;
   height: 30px;
@@ -716,6 +768,45 @@ body main .profile .inner .js_scroll_display.fade_in {
   }
 }
 
+.contactform_container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  font-family: "Lato", sans-serif;
+  font-family: "Noto Serif JP", serif;
+}
+.contactform_container .inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.contactform_container .inner form {
+  font-size: 2rem;
+}
+.contactform_container .inner .name_area .input_name {
+  margin-top: 10px;
+  border-bottom: 1px solid #000;
+}
+.contactform_container .inner .mail_area {
+  margin-top: 30px;
+}
+.contactform_container .inner .mail_area .input_mail {
+  margin-top: 10px;
+  border-bottom: 1px solid #000;
+}
+.contactform_container .inner .select_content {
+  margin-top: 30px;
+}
+.contactform_container .inner .select_content .select_wrap {
+  font-size: 1.75rem;
+  margin-top: 10px;
+}
+.contactform_container .inner .text_content {
+  margin-top: 10px;
+  border: 1px solid #333;
+}
+
 /* 基本設定 
 --------------------------------------- */
 html {
@@ -739,7 +830,6 @@ body {
 }
 
 a {
-  color: #333;
   text-decoration: none;
 }
 

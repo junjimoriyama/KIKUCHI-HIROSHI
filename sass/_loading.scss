@@ -84,3 +84,18 @@
 		}
 	}
 }
+
+@media screen and (max-width: 414px) {
+	.loading {
+	
+		.loading_image {
+		
+			img {
+				width: 50%;
+				height: 50%;
+				object-fit: contain;
+				animation: delayStart 1s;
+			}
+		}
+	}
+}

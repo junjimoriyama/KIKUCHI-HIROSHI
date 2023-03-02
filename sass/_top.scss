@@ -8,8 +8,6 @@ body {
 
   .menu_sp {
     display: none;
-    // visibility: hidden;
-    // opacity: 0;
   }
 
   .container {
@@ -23,7 +21,6 @@ body {
 
       .inner {
         width: min(1680px, 100%);
-        // height: 50%;
         display: flex;
         margin: 100px auto;
         padding: 0 var.$mainImageSidePadding;
@@ -136,6 +133,37 @@ body {
             .bottom_space {
               margin-bottom: 20px;
             }
+
+            .mail {
+              @include mixin.hoverDeviceJudge();
+              margin-top: 50px;
+              text-align: right;
+
+              a {
+                font-size: clamp(1.3rem, 1.254rem + 0.23vw, 1.5rem);
+                font-family: "Noto Serif JP", serif;
+                // color: #fff;
+              }
+              .fa-sharp {
+                // color: #fff;
+                cursor: pointer;
+              }
+            }
+            .blog {
+              @include mixin.hoverDeviceJudge();
+              text-align: right;
+              cursor: pointer;
+  
+              a {
+                font-size: clamp(1.3rem, 1.254rem + 0.23vw, 1.5rem);
+                font-family: "Noto Serif JP", serif;
+                // color: #fff;
+                img {
+                  width: 100px;
+                  height: auto;
+                }
+              }
+            }
           }
         }
         .js_scroll_display {
@@ -155,7 +183,7 @@ body {
   }
 }
 
-@media screen and(max-width: 1280px) {
+@media screen and (max-width: 1280px) {
   body {
     main {
       .profile {
@@ -163,47 +191,41 @@ body {
           display: flex;
           flex-direction: column-reverse;
           padding: 0 50px;
+          display: flex;
+          flex-direction: column-reverse;
+          padding: 0 var.$mainImageSidePadding;
 
-          // .main_page_inner {
-            display: flex;
-            flex-direction: column-reverse;
-            padding: 0 var.$mainImageSidePadding;
-
-            .profile_img {
-              width: 75%;
-              height: auto;
+          .profile_img {
+            width: 75%;
+            height: auto;
+            margin-bottom: 20px;
+          }
+          .profile_contents {
+            width: 100%;
+            .profile_title {
               margin-bottom: 20px;
-
-              img {
-              }
             }
-            .profile_contents {
-              width: 100%;
-              .profile_title {
-                margin-bottom: 20px;
-              }
-              .profile_name_ja {
-                font-size: 1.5rem;
-                margin-bottom: 5px;
-              }
-              .profile_name_en {
-                font-size: 2.5rem;
-                font-family: var.$fontFamilyEn;
-                margin-bottom: 20px;
-              }
-              .profile_text {
-                padding: 0;
-                margin-bottom: 20px;
-              }
+            .profile_name_ja {
+              font-size: 1.5rem;
+              margin-bottom: 5px;
             }
-          // }
+            .profile_name_en {
+              font-size: 2.5rem;
+              font-family: var.$fontFamilyEn;
+              margin-bottom: 20px;
+            }
+            .profile_text {
+              padding: 0;
+              margin-bottom: 20px;
+            }
+          }
         }
       }
     }
   }
 }
 
-@media screen and(max-width: 768px) {
+@media screen and (max-width: 768px) {
   body {
     transition: 1s;
 
@@ -232,7 +254,6 @@ body {
         justify-content: center;
         align-items: center;
         z-index: 3;
-        // scroll-bar-width:none;
 
         .gloval_nav_sp {
           display: flex;
@@ -276,15 +297,15 @@ body {
         justify-content: center;
         align-items: center;
         height: 100vh;
-  
+
         .inner {
           // margin: 0;
           // position: relative;
           // height: auto;
-  
+
           .main_visual_name {
             display: none;
-  
+
             p {
               font-size: 1rem;
             }
@@ -295,14 +316,14 @@ body {
             // position: relative;
             // transform: translateY(-50%);
             // margin-bottom: 120px; /* ヘッダー分上にあげる */
-  
+
             .slide_img_sp {
               width: 100%;
               height: auto;
               animation: imgFadeSp 10s infinite;
               opacity: 0;
             }
-  
+
             @keyframes imgFadeSp {
               0% {
                 opacity: 0;
@@ -323,32 +344,29 @@ body {
           }
         }
       }
-  
-      @media screen and(max-width: 414px) {
-        .top {
-          main {
-            .profile {
-              .inner {
-                .profile_img {
-                  width: 100%;
-                  height: auto;
-                  margin-bottom: 20px;
-  
-                  img {
-                  }
-                }
-                .profile_contents {
-                  .profile_title {
-                  }
-                  .profile_name_ja {
-                  }
-                  .profile_name_en {
-                  }
-                  .profile_text {
-                    padding: 0;
-                    margin-bottom: 20px;
-                  }
-                }
+    }
+  }
+}
+
+@media screen and (max-width: 414px) {
+  body {
+    main {
+      .profile {
+        .inner {
+          .profile_img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+          }
+          .profile_contents {
+            .profile_text {
+              padding: 0;
+              margin-bottom: 20px;
+              .mail {
+                text-align: center;
+              }
+              .blog {
+                text-align: center;
               }
             }
           }
@@ -356,5 +374,4 @@ body {
       }
     }
   }
-
 }

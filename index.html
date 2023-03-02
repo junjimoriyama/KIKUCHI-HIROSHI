@@ -13,17 +13,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
   <link rel='stylesheet' href='https://unpkg.com/swiper@8/swiper-bundle.min.css' />
   <link rel='stylesheet' href='style.css'>
+  <!-- swiper -->
   <script src='https://unpkg.com/swiper@8/swiper-bundle.min.js'></script>
-  <script src='script.js' defer></script>
+  <script src='javaScript/script.js' defer></script>
 </head>
 
 <body id='body' class="top">
 
   <div id="loading" class="loading active">
-      <picture class="loading_image">
-        <source srcset="image/img1_sp.jpg" media="(max-width: 450px)">
-        <img src="image/img1.jpg" alt="ローディング写真">
-      </picture>
+    <picture class="loading_image">
+      <source srcset="image/loading/img1.jpg" media="(max-width: 450px)">
+      <img src="image/loading/img1.jpg" alt="ローディング写真">
+    </picture>
 
     <div class="loading_name">KIKUCH　HIROSHI
       <div class="loading_bar">
@@ -34,7 +35,6 @@
 
   <header class="header">
     <div class="inner">
-
       <!-- SP_ver -->
       <nav id="js_nav_sp" class="nav_sp">
         <p class="main_visual_name_sp js_main_visual_name_sp">
@@ -52,83 +52,78 @@
         <ul class="gloval_nav_pc">
           <li><a href='index.html'>TOP</a></li>
           <li><a href='gallery.html'>GALLERY</a></li>
-          <li><a href=''>BLOG</a></li>
-          <li><a href=''>CONTACT</a></li>
         </ul>
         <ul class="sns_nav_pc">
-          <li><a class="fa-brands fa-instagram" href=''></a></li>
-          <li><a class="fa-brands fa-twitter" href=''></a></li>
-          <li><a class="fa-brands fa-facebook" href=''></a></li>
+          <li><a class="fa-brands fa-instagram" href='https://www.instagram.com/hiroshi.photography_/'
+              target="_blank"></a></li>
+          <li><a class="fa-brands fa-twitter" href='https://twitter.com/kituonportrait' target="_blank"></a></li>
         </ul>
       </nav>
     </div>
-    
+
     <!-- SP_ver -->
     <div class="menu_sp">
       <ul class="gloval_nav_sp">
         <li><a href='index.html'>TOP</a></li>
         <li><a href='gallery.html'>GALLERY</a></li>
-        <li><a href=''>BLOG</a></li>
-        <li><a href=''>CONTACT</a></li>
       </ul>
       <ul class="sns_nav_sp">
-        <li><a class="fa-brands fa-instagram" href=''></a></li>
-        <li><a class="fa-brands fa-twitter" href=''></a></li>
-        <li><a class="fa-brands fa-facebook" href=''></a></li>
+        <li><a class="fa-brands fa-instagram" href='https://www.instagram.com/hiroshi.photography_/'
+            target="_blank"></a></li>
+        <li><a class="fa-brands fa-twitter" href='https://twitter.com/kituonportrait' target="_blank"></a></li>
       </ul>
     </div>
   </header>
 
-
   <div class="container">
-
     <section class="main_visual">
       <div class="inner">
-  
         <div id="js_main_visual_name" class="main_visual_name js_main_visual_name">
           <p>KIKUCHI HIROSHI</p>
         </div>
-
-          <div id="js_main_visual_image" class="main_visual_image">
-
-          </div>
-
-          <!-- SP_ver -->
-          <!-- <div class="scroll_line"></div> -->
-  
+        <div id="js_main_visual_image" class="main_visual_image">
+        </div>
       </div>
     </section>
-  
+
     <main>
+
       <section id="profile" class="profile">
         <div class="inner">
-
           <picture class="profile_img js_scroll_display">
-            <source srcset="image/profile_img_sp.jpg" media="(max-width: 450px)" />
-            <img src="image/profile_img.jpg" alt="プロフィール写真">
+            <source srcset="image/profile/profile_img_sp.jpg" media="(max-width: 450px)" />
+            <img src="image/profile/profile_img_sp.jpg" alt="プロフィール写真">
           </picture>
-  
+
           <div class="profile_contents js_scroll_display js_change_position">
             <div class="profile_title">PHOTOGRAPHER</div>
             <div class="profile_name_en">KIKUCH　HIROSHI</div>
             <div class="profile_name_ja">きくち　ひろし</div>
-            
             <div class="profile_text">
               1984年生まれ。千葉県在住。<br>
               東京ビジュアルアーツ写真学科途中退学。<br>
               <div class="bottom_space"></div>
-              その後、はじめて東南アジアを回り旅の魅力にハマる。<br>
+              その後、はじめて東南アジアを回り旅の魅力に惹かれる。<br>
               旅を通して、そこに在る人々の生活を撮ってきた。東南アジアを中心に撮影をしてきたが、今は東京や半径自分メートルの日常の光を切り取る。<br>
               <div class="bottom_space"></div>
               また、自身が吃音の当事者であるため、同じように吃音の当事者を撮る【吃音ポートレート】プロジェクトにも取り組む。<br>
               <div class="bottom_space"></div>
               2022年9月より、日常の光を題材としたZINEを毎月発行。<br>
               なんでもない、でも特別な瞬間をキャプチャーしている。
+              <div class="mail">
+                <a href="mailto:hiroshi0110@gmail.com">撮影のご依頼、ご相談がある方はこちらへ <i
+                    class="fa-sharp fa-regular fa-envelope"></i></a>
+              </div>
+              <div class="blog">
+                <a href="https://note.com/photography999" target="_blank">撮影日記はこちらへ<img src="image/logo/logo_sub.png"
+                    alt="撮影日記のURL"></a>
+              </div>
             </div>
           </div>
+
         </div>
       </section>
-  
+
     </main>
   </div>
 </body>
