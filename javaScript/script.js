@@ -3,12 +3,14 @@
 const loading = document.querySelector('.loading');
 // ローディング時にクラス名外す
 function loaded() {
-  loading.classList.remove('active');
+  sessionStorage.setItem('visited', 'first');
+  if (loading) loading.classList.remove('active');
 }
 
 if (document.querySelector('.loading')) {
+  // 初めて閲覧した時
   if (!sessionStorage.getItem('visited')) {
-    sessionStorage.setItem('visited', 'first');
+    // ローディングしたら
     window.addEventListener('load', function () {
       setTimeout(loaded, 3000);
     });
@@ -28,10 +30,12 @@ const mainVisualImage = document.getElementById('js_main_visual_image'),
 mainVisualImage.appendChild(slidImage);
 
 // 画面幅によって写真サイズ変える
+// sp
 if (window.innerWidth < 450) {
   slidImage.setAttribute('class', 'slide_img_sp')
   slidImage.src = 'image/slide/img13_sp.jpg'
   setInterval(slideChangeSp, 10000)
+// pc
 } else {
   slidImage.setAttribute('class', 'slide_img')
   slidImage.src = 'image/slide/img13.jpg'
@@ -43,6 +47,7 @@ let slideNumSp = 0,
 
 // スライドの動き
 function slideChangeSp() {
+  // sp
   if (slideNumSp === imgScr.length - 1) {
     slideNumSp = 0;
   } else {
@@ -51,6 +56,7 @@ function slideChangeSp() {
   document.querySelector('.slide_img_sp').src = imgScrSp[slideNumSp];
 }
 function slideChange() {
+  // pc
   if (slideNum === imgScr.length - 1) {
     slideNum = 0;
   } else {
@@ -68,38 +74,42 @@ document.getElementById('js_hamburger_menu').addEventListener('click', function 
 
 //  一文字ずつ表示 ----------------------------------------------------------------
 
-if (document.querySelector('.js_main_visual_name')) {
-
-  const animationVisualName = document.querySelector('.js_main_visual_name > p'),
-    visualNameText = animationVisualName.textContent,
-    // 空の配列定義
-    visualNameTextArray = [];
-
-  animationVisualName.textContent = '';
-
-  // 一文字ずつ区切る
-  for (let i = 0; i < visualNameText.split('').length; i++) {
-    const oneText = visualNameText.split('')[i];
-    if (oneText === ' ') {
-      // 空白は空白で返す
-      visualNameTextArray.push(' ');
-      // 文字はspanタグで囲って返す
-    } else {
-      visualNameTextArray.push('<span style="animation-delay: ' + (i * .2) + 'S;">' + oneText + '</span>')
+if (!sessionStorage.getItem('visited')) {
+  if (document.querySelector('.js_main_visual_name')) {
+  
+    const animationVisualName = document.querySelector('.js_main_visual_name > p'),
+      visualNameText = animationVisualName.textContent,
+      // 空の配列定義
+      visualNameTextArray = [];
+  
+    animationVisualName.textContent = '';
+  
+    // 一文字ずつ区切る
+    for (let i = 0; i < visualNameText.split('').length; i++) {
+      const oneText = visualNameText.split('')[i];
+      if (oneText === ' ') {
+        // 空白は空白で返す
+        visualNameTextArray.push(' ');
+        // 文字はspanタグで囲って返す
+      } else {
+        visualNameTextArray.push('<span style="animation-delay: ' + (i * .2) + 'S;">' + oneText + '</span>')
+      }
+    }
+    // 元のHTMLに戻す
+    for (let j = 0; j < visualNameTextArray.length; j++) {
+      animationVisualName.innerHTML += visualNameTextArray[j]
     }
   }
-  // 最終的には元のHTMLに入れ込む
-  for (let j = 0; j < visualNameTextArray.length; j++) {
-    animationVisualName.innerHTML += visualNameTextArray[j]
-  }
+  
 }
 
 // scrollDisplay ----------------------------------------------------------------
-// スクロール量に応じて画面を表示させる
+
 const scrollDisplay = document.querySelectorAll('.js_scroll_display');
 
+// スクロールしたら
 document.addEventListener('scroll', () => {
-  scrollDisplay.forEach((element, index) => {
+  scrollDisplay.forEach((_, index) => {
     // 要素までのスクロール量＋要素の0.6倍分スクロールしたら
     const scrollDisplayDistance = scrollDisplay[index].getBoundingClientRect().top
       + scrollDisplay[index].clientHeight * .6;
@@ -119,8 +129,9 @@ const mainVisualNameSp = document.querySelector('.js_main_visual_name_sp'),
   hamburgerBar = document.querySelectorAll('.hamburger_bar'),
   navSP = document.querySelector('.nav_sp')
 
+// スクロールしたら
 window.addEventListener('scroll', function () {
-
+  // Y軸のスクロール量
   let scroll = window.pageYOffset;
 
   // スクロール量500以上の背景色
@@ -129,6 +140,7 @@ window.addEventListener('scroll', function () {
     header.style.backgroundColor = "#000";
     profile.style.color = '#fff';
     mainVisualNameSp.style.color = '#fff';
+    // ハンバーガーメニューのライン
     for (let i = 0; i < hamburgerBar.length; i++) {
       hamburgerBarLine = hamburgerBar[i]
       hamburgerBarLine.style.backgroundColor = '#fff';
@@ -139,6 +151,7 @@ window.addEventListener('scroll', function () {
     header.style.backgroundColor = "#fff";
     profile.style.color = '#000';
     mainVisualNameSp.style.color = '#000';
+    // ハンバーガーメニューのライン
     for (let i = 0; i < hamburgerBar.length; i++) {
       hamburgerBarLine = hamburgerBar[i]
       hamburgerBarLine.style.backgroundColor = '#000';
@@ -159,106 +172,3 @@ if (document.querySelector('.js_change_position')) {
     jsChangePosition.insertBefore(profileNameJa, profileNameEn)
   }
 }
-
-// スライドショー
-// // if(document.getElementById('js_main_visual_image')) {
-//   const mainVisualImage = document.getElementById('js_main_visual_image');
-//   const slidImage = document.createElement('img');
-
-//   mainVisualImage.appendChild(slidImage);
-
-//   // pc用、sp用で写真サイズ分ける
-//   const imgScr = ['image/img13.jpg', 'image/img11.jpg', 'image/img12.jpg'];
-//   const imgScrSp = ['image/img13_sp.jpg', 'image/img11_sp.jpg', 'image/img12_sp.jpg'];
-
-//   // window幅が450以下
-//   if (window.innerWidth < 450) {
-//     slidImage.setAttribute('class', 'slide_img_sp');
-//     slidImage.src = 'image/img13_sp.jpg';
-//     setInterval(slideTimeSp, 10000);
-//   } else {
-//     slidImage.setAttribute('class', 'slide_img');
-//     slidImage.src = 'image/img13.jpg';
-//     setInterval(slideTime, 20000);
-//   }
-
-//   // 写真のカウンター
-//   let num = 0;
-
-//   // PC用写真
-//   function slideTime() {
-//     if (num === imgScr.length - 1) {
-//       num = 0;
-//     } else {
-//       num++;
-//     }
-//     document.querySelector('.slide_img').src = imgScr[num];
-//   }
-
-//   // SP用写真
-//   function slideTimeSp() {
-//     if (num === imgScrSp.length - 1) {
-//       num = 0;
-//     } else {
-//       num++;
-//     }
-//     document.querySelector('.slide_img_sp').src = imgScrSp[num];
-//   }
-// // }
-
-// --------------------------------------------------------------------------
-
-
-// スクロールさせない動作
-// const jsNavSp = document.getElementById('js_nav_sp')
-// console.log(jsNavSp)
-
-// function disableScroll(event) {
-//   event.preventDefault();
-// }
-
-// イベントと関数を紐付け
-// jsNavSp.addEventListener('touchmove', disableScroll, { passive: false });
-
-/* spメニュー開いた時にスクロールさせない */
-
-//   let scrollPosition = 0
-//   // 端末の種類を取得
-//   const agent = window.navigator.userAgent.toLowerCase(),
-//     // iOSかどうか
-//     isiOS = agent.indexOf('iphone') > -1 || agent.indexOf('ipad') > -1 || agent.indexOf('macintosh') > -1 && 'ontouchend' in document,
-//     html = document.querySelector('html'),
-//     body = document.querySelector('body')
-
-//     // メニューが閉じてるかどうか（contains クラスがあるかどうか）!:ない時（メニューが閉じている時）
-//   if (!document.querySelector('.nav_sp').classList.contains('open')) {
-//     if (isiOS) {
-//       // それぞれの指定をなくす（消す）
-//       body.style.position = ''
-//       body.style.top = ''
-//       // 元々のスクロールに戻す
-//       // window.scrollTo(0, scrollPosition)
-//       // html.style.scrollBehavior = 'smooth'
-//     } else {
-//       html.style.overflowY = 'visible'
-//       body.style.overflowY = 'visible'
-//     }
-
-//     // メニューが開いている状態
-//   } else {
-//     if (isiOS) {
-//         // 現在のスクロール量の保存
-//         scrollPosition = window.scrollY
-//         body.style.position = 'fixed'
-//         body.style.top = '-' + scrollPosition + 'px'
-
-//       // iOSでなければ
-//     } else {
-//       html.style.overflowY = 'hidden'
-//       body.style.overflowY = 'hidden'
-//     }
-//   }
-// });
-
-// --------------------------------------------------------------------------
-

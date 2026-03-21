@@ -9,7 +9,7 @@
     }
   }
 
-  /* gallary_container ---------------------------------------------------------------*/
+  /* gallery_container ---------------------------------------------------------------*/
   .gallary_container {
     display: flex;
     flex-wrap: wrap;
@@ -20,7 +20,7 @@
       li {
         /* 選択されていない画像 */
         &:not(.active) {
-          filter: brightness(0.2);
+          filter: brightness(0.5);
         }
       }
     }

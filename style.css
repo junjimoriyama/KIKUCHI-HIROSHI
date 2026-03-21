@@ -3,16 +3,13 @@
 --------------------------------------- */
 .loading {
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #fff;
-  transition: 1s;
   visibility: hidden;
+  transition: 0.3s ease-out;
   opacity: 0;
   overflow: hidden;
   z-index: 100;
@@ -28,8 +25,7 @@
 .loading .loading_image img {
   width: 25%;
   height: 25%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   animation: delayStart 1s;
 }
 @keyframes delayStart {
@@ -54,7 +50,7 @@
 .loading .loading_bar {
   width: 100%;
   height: 1px;
-  background-color: #eee; /*バーの背景色*/
+  background-color: #eee;
   border-radius: 5px;
   position: relative;
   overflow: hidden;
@@ -62,9 +58,9 @@
 }
 .loading .loading_bar .bar {
   height: 100%;
-  background-color: #333; /*バーカラー*/
+  background-color: #333;
   position: absolute;
-  animation: progress 2s infinite normal; /*アニメーションスピード*/
+  animation: progress 2s infinite normal;
   animation-fill-mode: forwards;
 }
 @keyframes progress {
@@ -80,8 +76,7 @@
   .loading .loading_image img {
     width: 50%;
     height: 50%;
-    -o-object-fit: contain;
-       object-fit: contain;
+    object-fit: contain;
     animation: delayStart 1s;
   }
 }
@@ -427,6 +422,7 @@ body main .profile .inner .js_scroll_display.fade_in {
     display: none;
     visibility: hidden;
     opacity: 0;
+    transition: 0.5s;
   }
   body .menu_sp.open {
     position: fixed;
@@ -532,7 +528,7 @@ body main .profile .inner .js_scroll_display.fade_in {
   }
 }
 .gallary {
-  /* gallary_container ---------------------------------------------------------------*/
+  /* gallery_container ---------------------------------------------------------------*/
   /* モーダルの指定 */
   /* モーダルを消すボタン */
 }
@@ -553,7 +549,7 @@ body main .profile .inner .js_scroll_display.fade_in {
   /* 選択されていない画像 */
 }
 .gallary .gallary_container.active li:not(.active) {
-  filter: brightness(0.2);
+  filter: brightness(0.5);
 }
 .gallary .gallary_container li {
   width: 20%;
@@ -582,8 +578,7 @@ body main .profile .inner .js_scroll_display.fade_in {
 .gallary .gallary_container li img.thumbnail {
   width: 100%;
   aspect-ratio: 1/1;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .gallary .gallary_container li img.popUp {
   position: absolute;
@@ -627,8 +622,7 @@ body main .profile .inner .js_scroll_display.fade_in {
   width: 100%;
   height: 65vh;
   margin-top: 40px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .gallary .modal .swiper-button-prev {
   left: 10px;
@@ -718,8 +712,7 @@ body main .profile .inner .js_scroll_display.fade_in {
     left: 0;
     transform: none;
     aspect-ratio: 1/1;
-    -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
   }
   .gallary .modal .close {
     top: auto;
@@ -747,8 +740,7 @@ body main .profile .inner .js_scroll_display.fade_in {
     left: 0;
     transform: none;
     aspect-ratio: 1/1;
-    -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
   }
   .gallary .modal .slide_wrapper .swiper {
     width: 100%;
@@ -768,45 +760,6 @@ body main .profile .inner .js_scroll_display.fade_in {
   }
 }
 
-.contactform_container {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-  font-family: "Lato", sans-serif;
-  font-family: "Noto Serif JP", serif;
-}
-.contactform_container .inner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.contactform_container .inner form {
-  font-size: 2rem;
-}
-.contactform_container .inner .name_area .input_name {
-  margin-top: 10px;
-  border-bottom: 1px solid #000;
-}
-.contactform_container .inner .mail_area {
-  margin-top: 30px;
-}
-.contactform_container .inner .mail_area .input_mail {
-  margin-top: 10px;
-  border-bottom: 1px solid #000;
-}
-.contactform_container .inner .select_content {
-  margin-top: 30px;
-}
-.contactform_container .inner .select_content .select_wrap {
-  font-size: 1.75rem;
-  margin-top: 10px;
-}
-.contactform_container .inner .text_content {
-  margin-top: 10px;
-  border: 1px solid #333;
-}
-
 /* 基本設定 
 --------------------------------------- */
 html {
@@ -819,7 +772,6 @@ body {
 }
 
 body {
-  /* font-family: YakuHanJP_Noto, 'Noto Sans JP', sans-serif; */
   color: #333;
 }
 
@@ -835,4 +787,6 @@ a {
 
 li {
   list-style: none;
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */
