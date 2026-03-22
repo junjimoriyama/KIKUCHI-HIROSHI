@@ -148,7 +148,7 @@ window.addEventListener('scroll', function () {
     // スクロール量300以上の背景色
   } else if (scroll > 300) {
     document.body.style.backgroundColor = "#fff"
-    header.style.backgroundColor = "#fff";
+    header.style.backgroundColor = "rgba(255, 255, 255, 0.9)";
     profile.style.color = '#000';
     mainVisualNameSp.style.color = '#000';
     // ハンバーガーメニューのライン
