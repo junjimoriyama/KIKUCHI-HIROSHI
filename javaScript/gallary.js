@@ -58,7 +58,7 @@ images.forEach((el, index) => {
 	swiperSlide.classList.add('swiper-slide');
 	const swiperSlideImage = document.createElement('img');
 	// 写真の表示
-	swiperSlideImage.setAttribute('src', `image/gallary/img${index + 1}.jpg`);
+	swiperSlideImage.setAttribute('src', `/image/gallary/img${index + 1}.jpg`);
 	swiperSlide.appendChild(swiperSlideImage);
 	swiperWrapper.appendChild(swiperSlide);
 
